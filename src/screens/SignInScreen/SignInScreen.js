@@ -1,21 +1,33 @@
-import { View, Text ,StyleSheet} from 'react-native'
+import { View, Text ,StyleSheet, ScrollView} from 'react-native'
 import React, {useState} from 'react'
 import CustomInput from '../components/CustomInput'
 import CustomButton from '../components/CustomButton';
+import { useNavigation } from '@react-navigation/native';
+import Navigation from '../../navigation';
 
 const SignInScreen = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const navigation = useNavigation();
 
     const onSignInPressed = () => {
-        Console.warn ("Sign In");
+        //validate user
+        navigation.navigate('Home');
+    };
+
+    const onForgotPasswordPressed = () => {
+      navigation.navigate("ForgotPassword ");
+
+
     };
 
     const onSignUpPressed = () => {
-        Console.warn ("Sign Up");
+        navigation.navigate('SignUp');
     };
   return (
-    <View style = {styles.root}>
+    <ScrollView showsVerticalScrollIndicator = {false}>
+     <View style = {styles.root}>
+
       <CustomInput 
       placeholder="Username" 
       value = {username} 
@@ -28,9 +40,12 @@ const SignInScreen = () => {
       setValue = {setPassword}
       secureTextEntry= {true}
       />
+      
       <CustomButton text = "Sign In" onPress = {onSignInPressed}/>
       <CustomButton text = "Sign Up" onPress = {onSignUpPressed}  type= "TERTIARY"/>
-    </View>
+     </View>
+   </ScrollView>
+
   );
 };
 

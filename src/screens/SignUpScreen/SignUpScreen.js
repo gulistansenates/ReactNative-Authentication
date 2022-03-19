@@ -2,6 +2,7 @@ import { View, Text ,StyleSheet,ScrollView} from 'react-native'
 import React, {useState} from 'react'
 import CustomInput from '../components/CustomInput'
 import CustomButton from '../components/CustomButton';
+import { useNavigation } from '@react-navigation/native';
 
 const SignUpScreen = () => {
     const [username,setUsername] = useState('');
@@ -9,15 +10,20 @@ const SignUpScreen = () => {
     const [password,setPassword] = useState('');
     const [passwordRepat,setPasswordRepeat] = useState('');
 
-    const onSignInPressed = () => {
-        Console.warn ("Sign In");
-    };
+    const navigation = useNavigation();
 
     const onRegisterPressed = () => {
-        Console.warn ("onRegisterPressed");
+      navigation.navigate('ConfirmEmail');
     };
+
+    const onSignInPressed = () => {
+       navigation.navigate('SignIn');
+    };
+
+    
   return (
-    <View style = {styles.root}>
+    <ScrollView showsVerticalScrollIndicator = {false}>
+     <View style = {styles.root}>
       <Text style = {styles.title}> Create an account </Text>
 
       <CustomInput 
@@ -43,7 +49,8 @@ const SignUpScreen = () => {
           secureTextEntry= {true}
       />
       <CustomButton text ="Register" onPress = {onRegisterPressed}/>
-    </View>
+     </View>
+   </ScrollView>
   );
 };
 
