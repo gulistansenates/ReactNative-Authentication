@@ -11,6 +11,7 @@ import HomeScreen from '../screens/HomeScreen';
 
 
 const Stack = createNativeStackNavigator();
+
 const Navigation = () => {
   return (
     <NavigationContainer>
@@ -26,7 +27,7 @@ const Navigation = () => {
        </Stack.Navigator>
     </NavigationContainer>
 
-  )
-}
+  );
+};
 
-export default Navigation
+export default Navigation;

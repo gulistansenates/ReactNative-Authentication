@@ -8,6 +8,7 @@ import Navigation from '../../navigation';
 const SignInScreen = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+
     const navigation = useNavigation();
 
     const onSignInPressed = () => {
@@ -17,8 +18,6 @@ const SignInScreen = () => {
 
     const onForgotPasswordPressed = () => {
       navigation.navigate("ForgotPassword ");
-
-
     };
 
     const onSignUpPressed = () => {
