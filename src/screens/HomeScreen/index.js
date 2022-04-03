@@ -42,7 +42,7 @@ export default function index() {
 
        </View>
        <KeyboardAvoidingView 
-       behavior= {Platform.OS=== "windows" ?"padding" : "height"}
+       behavior= {Platform.OS=== "android" ?"padding" : "height"}
        style={styles.writeTaskWrapper}>
          <TextInput style= {styles.input} placeholder={'Write a task'} value = {task} onChangeText= {text => setTask(text)} />
 
